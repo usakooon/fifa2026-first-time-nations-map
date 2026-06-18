@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>初出場国の旅路：FIFA 2026 ベースキャンプから試合会場へ</title>
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.6.2/dist/maplibre-gl.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="app" aria-label="FIFA 2026 first-time nations storytelling map">
+    <div id="map"></div>
+
+    <section id="story-panel" aria-live="polite">
+      <p class="eyebrow">FIFA World Cup 2026</p>
+      <h1>初出場国の旅路</h1>
+      <p>Four first-time nations begin their World Cup journey.</p>
+    </section>
+
+    <div id="controls" aria-label="Story controls">
+      <button id="prevBtn" type="button">Prev</button>
+      <button id="playBtn" type="button">Play</button>
+      <button id="pauseBtn" type="button">Pause</button>
+      <button id="stopBtn" type="button">Stop</button>
+      <button id="nextBtn" type="button">Next</button>
+    </div>
+
+    <div id="legend" aria-label="Map legend">
+      <span><i class="legend-home"></i> Base Camp</span>
+      <span><i class="legend-stadium"></i> Stadium</span>
+      <span><i class="legend-flight"></i> Flight</span>
+      <span><i class="legend-car"></i> Car / same city</span>
+    </div>
+  </main>
+
+  <script src="https://unpkg.com/maplibre-gl@5.6.2/dist/maplibre-gl.js"></script>
+  <script src="data.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
