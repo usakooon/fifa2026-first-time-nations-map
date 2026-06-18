@@ -1,0 +1,29 @@
+/* Full-screen layout tuned for desktop storytelling. */
+html, body, #app { height: 100%; margin: 0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #07111f; color: #f7fbff; }
+#map { position: fixed; inset: 0; }
+#story-panel { position: fixed; left: 24px; top: 24px; z-index: 2; width: min(390px, calc(100vw - 48px)); max-height: calc(100vh - 150px); overflow: auto; padding: 24px; border: 1px solid rgba(255,255,255,.18); border-radius: 22px; background: linear-gradient(150deg, rgba(8,16,31,.88), rgba(15,32,55,.68)); box-shadow: 0 18px 50px rgba(0,0,0,.35); backdrop-filter: blur(14px); }
+#story-panel .eyebrow { margin: 0 0 8px; color: #8bd3ff; font-size: .77rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+#story-panel h1 { margin: 0 0 10px; font-size: clamp(1.55rem, 2.3vw, 2.45rem); line-height: 1.08; }
+#story-panel h2 { margin: 0 0 8px; font-size: 1.35rem; }
+#story-panel p { margin: 8px 0; color: #d9e7f8; line-height: 1.6; }
+.scene-meta, .match-list { display: grid; gap: 9px; margin-top: 16px; }
+.info-card { padding: 12px 14px; border-radius: 14px; background: rgba(255,255,255,.09); border-left: 4px solid var(--accent, #45b7ff); }
+.info-card strong { display: block; margin-bottom: 4px; color: #fff; }
+#controls { position: fixed; right: 22px; top: 22px; z-index: 3; display: flex; gap: 8px; padding: 10px; border: 1px solid rgba(255,255,255,.18); border-radius: 16px; background: rgba(6,13,25,.70); backdrop-filter: blur(12px); box-shadow: 0 12px 32px rgba(0,0,0,.25); }
+#controls button { appearance: none; border: 1px solid rgba(255,255,255,.18); border-radius: 11px; padding: 9px 12px; color: #f9fcff; background: rgba(255,255,255,.10); font-weight: 800; cursor: pointer; }
+#controls button:hover, #controls button:focus-visible { background: rgba(69,183,255,.33); outline: none; }
+#legend { position: fixed; right: 22px; bottom: 22px; z-index: 2; display: grid; gap: 8px; padding: 12px 14px; border-radius: 16px; background: rgba(6,13,25,.64); color: #e8f3ff; font-size: .86rem; backdrop-filter: blur(10px); }
+#legend span { display: flex; gap: 8px; align-items: center; }
+#legend i { width: 22px; height: 4px; display: inline-block; border-radius: 999px; }
+.legend-home { height: 18px !important; width: 18px !important; background: #26d6a3; }
+.legend-stadium { height: 18px !important; width: 18px !important; background: #ffd166; }
+.legend-flight { border-top: 3px dashed #45b7ff; background: transparent; }
+.legend-car { background: #ffb454; }
+.marker { transform: translate(-50%, -100%); min-width: 116px; padding: 8px 10px; border-radius: 14px; color: #fff; background: rgba(4,12,24,.86); border: 1px solid rgba(255,255,255,.22); box-shadow: 0 8px 22px rgba(0,0,0,.28); font-size: 12px; line-height: 1.25; text-align: center; }
+.marker .icon { display: block; font-size: 23px; }
+.marker.base { border-bottom: 4px solid #26d6a3; }
+.marker.match { border-bottom: 4px solid #ffd166; }
+.vehicle-marker { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 999px; background: rgba(0,0,0,.55); border: 1px solid rgba(255,255,255,.55); font-size: 22px; transform-origin: center; }
+.maplibregl-popup-content { color: #0a1524; border-radius: 14px; padding: 12px 14px; box-shadow: 0 8px 22px rgba(0,0,0,.28); }
+.popup-title { font-weight: 900; margin-bottom: 6px; }
+@media (max-width: 760px) { #story-panel { left: 12px; right: 12px; top: auto; bottom: 86px; width: auto; max-height: 42vh; padding: 16px; } #controls { left: 10px; right: 10px; top: 10px; justify-content: center; flex-wrap: wrap; } #legend { display: none; } .marker { min-width: 90px; font-size: 11px; } }
