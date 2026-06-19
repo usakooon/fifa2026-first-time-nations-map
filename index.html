@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Uzbekistan’s First World Cup Journey</title>
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="preconnect" href="https://tiles.openfreemap.org">
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.6.1/dist/maplibre-gl.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main class="app-shell" aria-label="3D story map prototype">
+    <div id="map" aria-label="3D map showing Uzbekistan's first World Cup journey"></div>
+
+    <aside class="story-panel" aria-live="polite">
+      <p class="eyebrow">FIFA World Cup 2026 prototype</p>
+      <h1 id="scene-title">Uzbekistan’s First World Cup Journey</h1>
+      <p id="scene-location" class="scene-location">North America</p>
+      <p id="scene-description" class="scene-description"></p>
+      <dl id="scene-details" class="scene-details"></dl>
+    </aside>
+
+    <section class="story-controls" aria-label="Story playback controls">
+      <div id="scene-counter" class="scene-counter">Scene 1 / 10</div>
+      <div id="progress-dots" class="progress-dots" aria-label="Scene progress"></div>
+      <div class="control-buttons">
+        <button id="prev-button" type="button" aria-label="Previous scene" title="Previous scene">‹</button>
+        <button id="play-pause-button" type="button" aria-label="Play story" title="Play story">Play</button>
+        <button id="restart-button" type="button" aria-label="Restart story" title="Restart story">Restart</button>
+        <button id="next-button" type="button" aria-label="Next scene" title="Next scene">›</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/maplibre-gl@5.6.1/dist/maplibre-gl.js"></script>
+  <script src="https://unpkg.com/@turf/turf@7.2.0/turf.min.js"></script>
+  <script src="./data.js"></script>
+  <script src="./main.js"></script>
+</body>
+</html>

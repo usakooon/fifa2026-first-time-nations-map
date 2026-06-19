@@ -1,0 +1,123 @@
+:root {
+  --panel-bg: rgba(8, 13, 28, 0.82);
+  --panel-border: rgba(255, 255, 255, 0.16);
+  --accent: #38bdf8;
+  --accent-strong: #0ea5e9;
+  --text: #f8fafc;
+  --muted: #cbd5e1;
+}
+
+* { box-sizing: border-box; }
+html, body, .app-shell, #map { height: 100%; margin: 0; }
+body {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--text);
+  background: #020617;
+  overflow: hidden;
+}
+#map { position: fixed; inset: 0; }
+#map::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 70% 20%, rgba(14, 165, 233, 0.16), transparent 32%),
+              linear-gradient(90deg, rgba(2, 6, 23, 0.45), transparent 50%);
+}
+
+.story-panel {
+  position: fixed;
+  top: 28px;
+  left: 28px;
+  width: min(390px, calc(100vw - 56px));
+  max-height: calc(100vh - 160px);
+  padding: 24px;
+  border: 1px solid var(--panel-border);
+  border-radius: 28px;
+  background: var(--panel-bg);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.42);
+  overflow: auto;
+  z-index: 2;
+}
+.eyebrow {
+  margin: 0 0 10px;
+  color: #7dd3fc;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.story-panel h1 { margin: 0; font-size: clamp(1.65rem, 3vw, 2.55rem); line-height: 1.04; }
+.scene-location { margin: 16px 0 0; color: #bae6fd; font-weight: 800; }
+.scene-description { margin: 16px 0 0; color: var(--muted); line-height: 1.6; }
+.scene-details {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 8px 14px;
+  margin: 18px 0 0;
+  color: var(--muted);
+}
+.scene-details dt { color: #e0f2fe; font-weight: 800; }
+.scene-details dd { margin: 0; }
+
+.story-controls {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: grid;
+  gap: 8px;
+  justify-items: center;
+  width: min(430px, calc(100vw - 32px));
+  padding: 10px 14px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.82);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 14px 42px rgba(0, 0, 0, 0.38);
+  z-index: 3;
+}
+.scene-counter { color: #e2e8f0; font-size: 0.78rem; font-weight: 800; }
+.progress-dots { display: flex; gap: 6px; align-items: center; }
+.progress-dot {
+  width: 7px; height: 7px; border: 0; padding: 0; border-radius: 50%;
+  background: rgba(226, 232, 240, 0.34); cursor: pointer;
+}
+.progress-dot.active { background: #38bdf8; box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.16); }
+.control-buttons { display: flex; align-items: center; gap: 8px; }
+.control-buttons button {
+  min-width: 42px;
+  height: 32px;
+  border: 0;
+  border-radius: 999px;
+  padding: 0 13px;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.11);
+  font-weight: 800;
+  cursor: pointer;
+  transition: background 160ms ease, transform 160ms ease;
+}
+.control-buttons button:hover { background: rgba(255, 255, 255, 0.22); transform: translateY(-1px); }
+.control-buttons button:disabled { opacity: 0.45; cursor: default; transform: none; }
+
+.map-marker {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.95);
+  background: #0f172a;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.36);
+  font-size: 18px;
+}
+.route-icon { font-size: 24px; filter: drop-shadow(0 6px 8px rgba(0,0,0,.45)); }
+.maplibregl-popup-content { border-radius: 14px; background: rgba(15, 23, 42, 0.92); color: white; border: 1px solid rgba(255,255,255,.16); }
+.maplibregl-popup-tip { border-top-color: rgba(15, 23, 42, 0.92) !important; }
+
+@media (max-width: 760px) {
+  .story-panel { top: 14px; left: 14px; width: calc(100vw - 28px); max-height: 42vh; padding: 18px; border-radius: 22px; }
+  .story-controls { bottom: 14px; max-width: 360px; }
+  .control-buttons button { min-width: 36px; padding: 0 10px; font-size: 0.8rem; }
+}
